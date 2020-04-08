@@ -29,17 +29,17 @@ const covid19ImpactEstimator = (data) => {
   /**
    * end challenge 2, start challenge 3
    */
-  let casesForVentByRequestedTimeImpact = (output.severeImpact.severeCasesByRequestedTime * 2) / 100;
+  let casesForVentByRequestedTimeImpac = (output.severeImpact.severeCasesByRequestedTime * 2) / 100;
   let casesForICUByRequestedTimeImpact = (output.impact.severeCasesByRequestedTime * 5) / 100;
-  let casesForVentByRequestedTimeSevere = (output.severeImpact.severeCasesByRequestedTime * 2) / 100;
+  let casesForVentByRequestedTimeSever = (output.severeImpact.severeCasesByRequestedTime * 2) / 100;
   let casesForICUByRequestedTimeSevere = (output.severeImpact.severeCasesByRequestedTime * 5) / 100;
   casesForICUByRequestedTimeImpact = Math.floor(casesForICUByRequestedTimeImpact);
-  casesForVentByRequestedTimeImpact = Math.floor(casesForVentByRequestedTimeImpact);
-  casesForVentByRequestedTimeSevere = Math.floor(casesForVentByRequestedTimeSevere);
+  casesForVentByRequestedTimeImpac = Math.floor(casesForVentByRequestedTimeImpac);
+  casesForVentByRequestedTimeSever = Math.floor(casesForVentByRequestedTimeSever);
   casesForICUByRequestedTimeSevere = Math.floor(casesForICUByRequestedTimeSevere);
   output.impact.casesForICUByRequestedTime = casesForICUByRequestedTimeImpact;
-  output.impact.casesForVentilatorsByRequestedTime = casesForVentByRequestedTimeImpact;
-  output.severeImpact.casesForVentilatorsByRequestedTime = casesForVentByRequestedTimeSevere;
+  output.impact.casesForVentilatorsByRequestedTime = casesForVentByRequestedTimeImpac;
+  output.severeImpact.casesForVentilatorsByRequestedTime = casesForVentByRequestedTimeSever;
   output.severeImpact.casesForICUByRequestedTime = casesForICUByRequestedTimeSevere;
   /**
    * economy loss
