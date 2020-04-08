@@ -48,10 +48,10 @@ const covid19ImpactEstimator = (data) => {
   impactEconomyLost *= data.region.avgDailyIncomeInUSD;
   impactEconomyLost *= data.region.avgDailyIncomePopulation;
   impactEconomyLost *= durationIndays;
-  data.impact.dollarsInFlight = impactEconomyLost;
+  output.impact.dollarsInFlight = impactEconomyLost;
   impactEconomyLost = output.severeImpact.infectionsByRequestedTime;
   impactEconomyLost *= data.region.avgDailyIncomeInUSD;
-  impactEconomyLost *= output.severeImpact.avgDailyIncomePopulation;
+  impactEconomyLost *= data.region.avgDailyIncomePopulation;
   impactEconomyLost *= durationIndays;
   output.severeImpact.dollarsInFlight = impactEconomyLost;
 
