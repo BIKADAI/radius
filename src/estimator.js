@@ -19,13 +19,13 @@ const covid19ImpactEstimator = (data) => {
    * challenge 1 end , and  number 2  start
    */
   const percentageInfectionsImpact = (output.impact.infectionsByRequestedTime * 15) / 100;
-  output.impact.severeCasesByRequestedTime = Math.floor(percentageInfectionsImpact);
+  output.impact.severeCasesByRequestedTime = percentageInfectionsImpact;
   const PersentageInfectionSevere = (output.severeImpact.infectionsByRequestedTime * 15) / 100;
-  output.severeImpact.severeCasesByRequestedTime = Math.floor(PersentageInfectionSevere);
+  output.severeImpact.severeCasesByRequestedTime = PersentageInfectionSevere;
   let beds = (data.totalHospitalBeds * 35) / 100 - output.impact.severeCasesByRequestedTime;
-  output.impact.hospitalBedsByRequestedTime = Math.floor(beds);
+  output.impact.hospitalBedsByRequestedTime = beds;
   beds = (data.totalHospitalBeds * 35) / 100 - output.severeImpact.severeCasesByRequestedTime;
-  output.severeImpact.hospitalBedsByRequestedTime = Math.floor(beds);
+  output.severeImpact.hospitalBedsByRequestedTime = beds;
   /**
    * end challenge 2, start challenge 3
    */
