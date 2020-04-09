@@ -8,6 +8,7 @@ const covid19ImpactEstimator = (data) => {
     severeImpact: {}
   };
   /**
+   * ok
    * challenge number 1 start here
    */
   output.data = data;
