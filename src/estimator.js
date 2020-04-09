@@ -46,12 +46,10 @@ const covid19ImpactEstimator = (data) => {
    */
   let impactEconomyLost = output.impact.infectionsByRequestedTime;
   if (impactEconomyLost > data.region.population) impactEconomyLost = data.region.population;
-  impactEconomyLost *= data.region.avgDailyIncomeInUSD;
   impactEconomyLost *= data.region.avgDailyIncomePopulation;
   impactEconomyLost *= durationIndays;
   output.impact.dollarsInFlight = impactEconomyLost;
   impactEconomyLost = output.severeImpact.infectionsByRequestedTime;
-  impactEconomyLost *= data.region.avgDailyIncomeInUSD;
   impactEconomyLost *= data.region.avgDailyIncomePopulation;
   impactEconomyLost *= durationIndays;
   output.severeImpact.dollarsInFlight = impactEconomyLost;
