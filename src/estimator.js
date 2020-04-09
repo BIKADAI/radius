@@ -29,7 +29,7 @@ const covid19ImpactEstimator = (data) => {
   /**
    * end challenge 2, start challenge 3
    */
-  let casesForVentByRequestedTimeImpac = (output.severeImpact.infectionsByRequestedTime * 2) / 100;
+  let casesForVentByRequestedTimeImpac = (output.Impact.infectionsByRequestedTime * 2) / 100;
   let casesForICUByRequestedTimeImpact = (output.impact.infectionsByRequestedTime * 5) / 100;
   let casesForVentByRequestedTimeSever = (output.severeImpact.infectionsByRequestedTime * 2) / 100;
   let casesForICUByRequestedTimeSevere = (output.severeImpact.infectionsByRequestedTime * 5) / 100;
@@ -47,10 +47,12 @@ const covid19ImpactEstimator = (data) => {
   let impactEconomyLost = output.impact.infectionsByRequestedTime;
   if (impactEconomyLost > data.region.population) impactEconomyLost = data.region.population;
   impactEconomyLost *= data.region.avgDailyIncomeInUSD;
+  impactEconomyLost *= data.region.avgDailyIncomePopulation;
   impactEconomyLost *= durationIndays;
   output.impact.dollarsInFlight = impactEconomyLost;
   impactEconomyLost = output.severeImpact.infectionsByRequestedTime;
   impactEconomyLost *= data.region.avgDailyIncomeInUSD;
+  impactEconomyLost *= data.region.avgDailyIncomePopulation;
   impactEconomyLost *= durationIndays;
   output.severeImpact.dollarsInFlight = impactEconomyLost;
 
