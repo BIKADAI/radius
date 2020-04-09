@@ -4,8 +4,25 @@ const covid19ImpactEstimator = (data) => {
   const fa = Math.floor(durationIndays / 3);
   const output = {
     data: {},
-    impact: {},
-    severeImpact: {}
+    impact: {
+      currentlyInfected: 0,
+      infectionsByRequestedTime: 0,
+      severeCasesByRequestedTime: 0,
+      hospitalBedsByRequestedTime: 0,
+      casesForICUByRequestedTime: 0,
+      casesForVentilatorsByRequestedTime: 0,
+      dollarsInFlight: 0
+
+    },
+    severeImpact: {
+      currentlyInfected: 0,
+      infectionsByRequestedTime: 0,
+      severeCasesByRequestedTime: 0,
+      hospitalBedsByRequestedTime: 0,
+      casesForICUByRequestedTime: 0,
+      casesForVentilatorsByRequestedTime: 0,
+      dollarsInFlight: 0
+    }
   };
   /**
    * ok
