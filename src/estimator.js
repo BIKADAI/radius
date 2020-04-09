@@ -29,10 +29,10 @@ const covid19ImpactEstimator = (data) => {
   /**
    * end challenge 2, start challenge 3
    */
-  let casesForVentByRequestedTimeImpac = (output.severeImpact.severeCasesByRequestedTime * 2) / 100;
-  let casesForICUByRequestedTimeImpact = (output.impact.severeCasesByRequestedTime * 5) / 100;
-  let casesForVentByRequestedTimeSever = (output.severeImpact.severeCasesByRequestedTime * 2) / 100;
-  let casesForICUByRequestedTimeSevere = (output.severeImpact.severeCasesByRequestedTime * 5) / 100;
+  let casesForVentByRequestedTimeImpac = (output.severeImpact.infectionsByRequestedTime * 2) / 100;
+  let casesForICUByRequestedTimeImpact = (output.impact.infectionsByRequestedTime * 5) / 100;
+  let casesForVentByRequestedTimeSever = (output.severeImpact.infectionsByRequestedTime * 2) / 100;
+  let casesForICUByRequestedTimeSevere = (output.severeImpact.infectionsByRequestedTime * 5) / 100;
   casesForICUByRequestedTimeImpact = Math.floor(casesForICUByRequestedTimeImpact);
   casesForVentByRequestedTimeImpac = Math.floor(casesForVentByRequestedTimeImpac);
   casesForVentByRequestedTimeSever = Math.floor(casesForVentByRequestedTimeSever);
