@@ -1,28 +1,10 @@
 const covid19ImpactEstimator = (data) => {
   const periods = { days: 1, weeks: 7, months: 30 };
-  const durationIndays = data.timeToElapse * periods[data.periodType];
-  const fa = Math.floor(durationIndays / 3);
+  const factor = 2 ** Math.floor((data.timeToElapse * periods[data.periodType]) / 3);
   const output = {
     data: {},
-    impact: {
-      currentlyInfected: 0,
-      infectionsByRequestedTime: 0,
-      severeCasesByRequestedTime: 0,
-      hospitalBedsByRequestedTime: 0,
-      casesForICUByRequestedTime: 0,
-      casesForVentilatorsByRequestedTime: 0,
-      dollarsInFlight: 0
-
-    },
-    severeImpact: {
-      currentlyInfected: 0,
-      infectionsByRequestedTime: 0,
-      severeCasesByRequestedTime: 0,
-      hospitalBedsByRequestedTime: 0,
-      casesForICUByRequestedTime: 0,
-      casesForVentilatorsByRequestedTime: 0,
-      dollarsInFlight: 0
-    }
+    impact: {},
+    severeImpact: {}
   };
   /**
    * ok
@@ -31,8 +13,8 @@ const covid19ImpactEstimator = (data) => {
   output.data = data;
   output.impact.currentlyInfected = data.reportedCases * 10;
   output.severeImpact.currentlyInfected = data.reportedCases * 50;
-  output.impact.infectionsByRequestedTime = output.impact.currentlyInfected * (2 ** (fa));
-  output.severeImpact.infectionsByRequestedTime = output.severeImpact.currentlyInfected * (2 ** fa);
+  output.impact.infectionsByRequestedTime = output.impact.currentlyInfected * factor;
+  output.severeImpact.infectionsByRequestedTime = output.severeImpact.currentlyInfected * factor;
   /**
    * challenge 1 end , and  number 2  start
    */
@@ -66,12 +48,12 @@ const covid19ImpactEstimator = (data) => {
   if (impactEconomyLost > data.region.population) impactEconomyLost = data.region.population;
   impactEconomyLost *= data.region.avgDailyIncomeInUSD;
   impactEconomyLost *= data.region.avgDailyIncomePopulation;
-  impactEconomyLost *= durationIndays;
+  impactEconomyLost *= data.timeToElapse * periods[data.periodType];
   output.impact.dollarsInFlight = impactEconomyLost;
   impactEconomyLost = output.severeImpact.infectionsByRequestedTime;
   impactEconomyLost *= data.region.avgDailyIncomeInUSD;
   impactEconomyLost *= data.region.avgDailyIncomePopulation;
-  impactEconomyLost *= durationIndays;
+  impactEconomyLost *= data.timeToElapse * periods[data.periodType];
   output.severeImpact.dollarsInFlight = impactEconomyLost;
 
   return output;
